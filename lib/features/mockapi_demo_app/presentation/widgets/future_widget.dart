@@ -5,11 +5,11 @@ import '../../data/models/item_data.dart';
 import '../../data/models/single_response.dart';
 
 Widget buildViews(int typeIndex) {
-  final DioClientList _clientList = DioClientList();
+  final DioClientList clientList = DioClientList();
   return FutureBuilder<SingleTypeResponse?>(
     // future: _client.getSingleTypeResponse(),
 
-    future: _clientList.getListTypeResponse(typeIndex),
+    future: clientList.getListTypeResponse(typeIndex),
     builder: (context, dataResonse) {
       if (dataResonse.hasData) {
         SingleTypeResponse? singleTypeResponseInfo = dataResonse.data;
@@ -19,7 +19,7 @@ Widget buildViews(int typeIndex) {
             children: [
               Row(
                 children: [
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Text(
                     singleTypeResponseInfo.type,
                     style: const TextStyle(fontSize: 18),
@@ -123,5 +123,5 @@ Widget buildContainer(DataItems dataitems, int typeIndex) {
       ),
     );
   }
-  return Text("");
+  return const Text("");
 }

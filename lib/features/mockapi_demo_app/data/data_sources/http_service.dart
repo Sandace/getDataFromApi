@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mockapi_demo/features/mockapi_demo_app/data/models/single_response.dart';
 
-import '../models/item_data.dart';
-
 class DioClient {
   final Dio _dio = Dio();
 
@@ -12,11 +10,11 @@ class DioClient {
   Future<SingleTypeResponse?> getSingleTypeResponse() async {
     SingleTypeResponse? singleTypeResponse;
     try {
-      Response SingleTypeResponseData = await _dio.get(_baseUrl);
-      print('SingleTypeResponse Info: ${SingleTypeResponseData.data}');
+      Response singleTypeResponseData = await _dio.get(_baseUrl);
+      print('SingleTypeResponse Info: ${singleTypeResponseData.data}');
 
       singleTypeResponse =
-          SingleTypeResponse.fromJson(SingleTypeResponseData.data);
+          SingleTypeResponse.fromJson(singleTypeResponseData.data);
     } on DioError catch (e) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx and is also not 304.
